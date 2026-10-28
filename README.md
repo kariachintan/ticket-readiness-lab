@@ -1,5 +1,7 @@
 # ticket-readiness-lab
 
+![CI](https://github.com/kariachintan/ticket-readiness-lab/actions/workflows/ci.yml/badge.svg)
+
 An advisory reviewer for engineering tickets. Point it at markdown tickets and it reports missing acceptance criteria, ambiguous wording, likely edge cases, and undeclared dependencies, always separating **what it observed** from **what it is guessing**, and always leaving the ready/not-ready call to a person.
 
 > All tickets in `data/tickets/` are fictional (`SYN-*`). This is a portfolio project built from public knowledge; it is not an employer project and encodes no employer process or rules.
