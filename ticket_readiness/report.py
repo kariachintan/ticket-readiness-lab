@@ -6,7 +6,8 @@ from dataclasses import asdict, dataclass, field
 from .checks import Finding, run_checks
 from .ticket import Ticket
 
-PENALTY = {"high": 25, "medium": 8, "low": 3}
+PENALTY = {"high": 25, "medium": 6, "low": 2}
+HIGH_CAP = 40  # any high-severity fact caps the score: one missing fundamental outweighs many small wins
 
 
 @dataclass
@@ -46,6 +47,8 @@ def score_findings(findings: list[Finding]) -> tuple[int, str]:
         total += PENALTY[f.severity] * (0.5 if f.kind == "assumption" else 1.0)
     score = max(0, int(round(100 - total)))
     has_high = any(f.severity == "high" for f in findings)
+    if has_high:
+        score = min(score, HIGH_CAP)
     verdict = "not ready" if has_high or score < 50 else "needs clarification" if score < 80 else "looks ready"
     return score, verdict
 
