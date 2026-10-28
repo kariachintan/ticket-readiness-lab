@@ -47,7 +47,6 @@ AMBIGUOUS_TERMS = {
     "quick": "state a measurable target",
     "everything": "enumerate exactly what is included",
     "etc": "list the remaining items or mark them out of scope",
-    "etc.": "list the remaining items or mark them out of scope",
     "tbd": "resolve before scheduling, or split the undecided part into a spike",
     "maybe": "decide, or record the open question explicitly",
     "probably": "confirm, or record as an assumption",
