@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ticket-readiness-lab"
+version = "0.1.0"
+description = "Reviews engineering tickets for missing acceptance criteria, ambiguity, edge cases, and dependencies. Advises; never decides."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov>=4"]
+llm = ["anthropic>=0.30"]
+
+[project.scripts]
+ticket-readiness = "ticket_readiness.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ticket_readiness*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
